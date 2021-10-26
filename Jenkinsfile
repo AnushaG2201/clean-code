@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo "Test"
+                echo "Testnow"
                 sh 'mvn --version'
             }
         }
