@@ -16,4 +16,20 @@ public class Rental {
     public Movie getMovie() {
         return movie;
     }
+
+    double amount(){
+        return movie.amountFor(daysRented);
+    }
+
+    int frequentRenterPoint() {
+        return isBonusApplicable(daysRented) ? 2:1;
+
+    }
+
+    private boolean isBonusApplicable(int daysRented) {
+        return movie.isNewRelease()
+                &&
+                (daysRented > 1);
+    }
+
 }
