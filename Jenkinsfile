@@ -1,10 +1,14 @@
+def groovy
 pipeline {
-    agent any
+    agent { docker 'maven:3.3.3' }
 
     stages {
         stage('Build') {
             steps {
-               sh 'echo Hello, World!'
+                script {
+                    sh "echo Hello, World!!!"
+                    echo 'hrllo'
+                }
             }
         }
 
