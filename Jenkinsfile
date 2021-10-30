@@ -2,22 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-               ech 'Building'
+               sh './gradlew clean build'
             }
         }
 
         stage('Test'){
             steps {
-                echo "Test"
+                sh 'make check'
+                junit 'reports/**/*.xml'
         }
         }
 
         stage('Deploy'){
-                    steps {
-                        echo "Deploy"
-                }
+            steps {
+                sh 'make publish'
+            }
     }
 }
 }
